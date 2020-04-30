@@ -23,7 +23,7 @@ bool findPath(const Position& s, const Position& e, std::vector<Position>& path,
     Position next;
 
     DIR[0].x = 0;
-    DIR[1].y = 1;
+    DIR[0].y = 1;
 
     DIR[1].x = 1;
     DIR[1].y = 0;
@@ -118,7 +118,7 @@ int main(int argc, char** argv) {
 
     int x = 1;
     int y = 1;
-    while(!(m == 0 && n == 0)) {
+    while(!(x == 0 && y == 0)) {
         getline(f, str);
 	    std::istringstream ss2(str);
         ss2 >> x >> y;
