@@ -132,7 +132,7 @@ int MCMF(int s, int t, int n) {
 			d = std::min(d, E[i].cap - E[i].flow);
 			std::cout << "---" << E[i ^ 1].v;
 		}
-        
+
         std::cout << std::endl;
 		std::cout << "add flow:" << d << std::endl;
 		std::cout << std::endl;
@@ -154,7 +154,7 @@ void printing(int n) {
 	for (int i = 1; i <= n; i++) {
 		std::cout << "v" << i << "  [" << V[i].first;
 		for (int j = V[i].first; ~j; j = E[j].next) {
-			std::cout << "]---[" << E[j].v << " " << E[j].cap << " " << E[j].flow << "  " << E[j].next;
+			std::cout << "]---[" << E[j].v << " " << E[j].cap << " " << E[j].flow  << "  " << E[j].cost << "  " << E[j].next;
 		}
 		std::cout << "]" << std::endl;
 	}
@@ -167,7 +167,7 @@ void printflow(int n) {
 	for (int i = 1; i <= n; i++) {
 		for (int j = V[i].first; ~j; j = E[j].next) {
 			if (E[j].flow > 0) {
-				std::cout << "v" << i << "--" << "v" << E[j].v << "   " << E[j].flow;
+				std::cout << "v" << i << "--" << "v" << E[j].v << "   " << E[j].flow << "   " << E[j].cost;
 				std::cout << std::endl;
 			}
 		}
