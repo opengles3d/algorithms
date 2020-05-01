@@ -58,7 +58,7 @@ void DCXA() {
 
         if(max1 <= 0) {//find the result
             std::cout << std::endl;
-            std::cout << "Got the optimized solution: " << keernel[0][0] << std::endl;
+            std::cout << "Got the optimized solution: " << kernel[0][0] << std::endl;
             print();
             break;
         }
@@ -114,19 +114,20 @@ void DCXA() {
         }
 
         kernel[k][e] = 1 / kernel[k][e];
-        print()
+        print();
     }
 }
 
 int main(int argc, char** argv) {
     std::string str;
-	std::fstream f("n.txt");
+	std::fstream f("o.txt");
 	getline(f, str);
 	std::istringstream ss(str);
 	ss >> m; //row
 
     getline(f, str);
 	std::istringstream ss2(str);
+    FJL.resize(m + 1);
     for(int i = 1; i <= m; i++) {
         ss2 >> FJL[i];
     }
@@ -136,11 +137,17 @@ int main(int argc, char** argv) {
 	ss3 >> n; //row
     getline(f, str);
 	std::istringstream ss4(str);
+    JL.resize(n + 1);
     for(int i = 1; i <= n; i++) {
         ss4 >> JL[i];
     }
 
-    for(int i = 1; i <= n; i++) {
+    for(int i = 0; i <= n; i++) {
+        std::vector<float> row(m + 1);
+        kernel.push_back(row);
+    }
+
+    for(int i = 0; i <= n; i++) {
         getline(f, str);
 	    std::istringstream ss5(str);
         for(int j = 0; j <= m; j++) {
