@@ -11,14 +11,14 @@ Node* makeUpData() {
 	Node* pHead = new Node(1);
 	Node* pD = pHead;
 	Node* p = nullptr;
-	for (int i = 2; i <= 4; i++) {
+	for (int i = 2; i <= 5; i++) {
 		p = new Node(i);
 		pD->next = p;
 		pD = p;
 	}
 
 	Node* p2 = nullptr;
-	for (int i = 5; i <= 7; i++) {
+	for (int i = 6; i <= 7; i++) {
 		p2 = new Node(i);
 		pD->next = p2;
 		pD = p2;
@@ -47,6 +47,7 @@ bool checkCircle(Node* pHead, int& circlelength, Node*& pStart) {
 		if (pP == pP2) {
 			if (!hasCircle) {
 				pP3 = pP;
+                std::cout << "The first meet point" << pP->data << std::endl;
 				hasCircle = true;
 			}
 
