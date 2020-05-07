@@ -11,18 +11,30 @@ public:
     }
 
     int pop() {
-        int at = main_stack.top();
-        int min = min_stack.top();
-        if(at == min) {
-            min_stack.pop();
+        if(!main_stack.empty()) {
+            int at = main_stack.top();
+            int min = min_stack.top();
+            if(at == min) {
+                min_stack.pop();
+            }
+            main_stack.pop();
+            return at;
+        } else {
+            return 0;
         }
-        main_stack.pop();
-        return at;
     }
+
+    bool empty() {
+        return main_stack.empty();
+    }
+
     int getMin() {
-        int min = min_stack.top();
-        //min_stack.pop();
-        return min;
+        if(!min_stack.empty()) {
+            return min_stack.top();
+        } else {
+            return 0;
+        }
+        
     }
 private:
     std::stack<int> main_stack;
